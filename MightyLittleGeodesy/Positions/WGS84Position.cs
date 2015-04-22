@@ -123,7 +123,7 @@ namespace MightyLittleGeodesy.Positions
                     this.Latitude = this.ParseValueFromDmsString(value, 'S');
                     break;
                 case WGS84Format.Degrees:
-                    this.Latitude = double.Parse(value);
+                    this.Latitude = double.Parse(value, CultureInfo.InvariantCulture);
                     break;
             }
         }
@@ -145,7 +145,7 @@ namespace MightyLittleGeodesy.Positions
                     this.Longitude = this.ParseValueFromDmsString(value, 'W');
                     break;
                 case WGS84Format.Degrees:
-                    this.Longitude = double.Parse(value);
+                    this.Longitude = double.Parse(value, CultureInfo.InvariantCulture);
                     break;
             }
         }
