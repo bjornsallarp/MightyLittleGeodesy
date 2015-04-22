@@ -1,20 +1,13 @@
 ﻿
-Microsoft Visual Studio Solution File, Format Version 11.00
-# Visual Studio 2010
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{388A5857-8948-4CE2-A61D-1C2B45B0983F}"
-	ProjectSection(SolutionItems) = preProject
-		CoordinateTransformation.vsmdi = CoordinateTransformation.vsmdi
-		LocalTestRun.testrunconfig = LocalTestRun.testrunconfig
-	EndProjectSection
-EndProject
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2013
+VisualStudioVersion = 12.0.30501.0
+MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MightyLittleGeodesy", "MightyLittleGeodesy\MightyLittleGeodesy.csproj", "{F5C2A972-CAE0-423D-8F11-6D446F4916D0}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MightyLittleGeodesyTests", "MightyLittleGeodesyTests\MightyLittleGeodesyTests.csproj", "{809AE4C2-0334-42E7-A889-AAA3B1083AA1}"
 EndProject
 Global
-	GlobalSection(TestCaseManagementSettings) = postSolution
-		CategoryFile = CoordinateTransformation.vsmdi
-	EndGlobalSection
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
 		Release|Any CPU = Release|Any CPU
@@ -31,5 +24,8 @@ Global
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(TestCaseManagementSettings) = postSolution
+		CategoryFile = CoordinateTransformation.vsmdi
 	EndGlobalSection
 EndGlobal

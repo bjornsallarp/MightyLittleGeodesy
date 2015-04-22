@@ -23,12 +23,13 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
  */
 
-using System;
-using MightyLittleGeodesy.Classes;
-using System.Globalization;
-
 namespace MightyLittleGeodesy.Positions
 {
+    using System;
+    using System.Globalization;
+
+    using MightyLittleGeodesy.Classes;
+
     public class WGS84Position : Position
     {
         public enum WGS84Format
@@ -70,11 +71,11 @@ namespace MightyLittleGeodesy.Positions
             if (format == WGS84Format.Degrees)
             {
                 positionString = positionString.Trim();
-                string[] lat_lon = positionString.Split(' ');
-                if (lat_lon.Length == 2)
+                string[] latLon = positionString.Split(' ');
+                if (latLon.Length == 2)
                 {
-                    Latitude = double.Parse(lat_lon[0], CultureInfo.InvariantCulture);
-                    Longitude = double.Parse(lat_lon[1], CultureInfo.InvariantCulture);
+                    Latitude = double.Parse(latLon[0], CultureInfo.InvariantCulture);
+                    Longitude = double.Parse(latLon[1], CultureInfo.InvariantCulture);
                 }
                 else
                 {
@@ -85,10 +86,15 @@ namespace MightyLittleGeodesy.Positions
             {
                 int firstValueEndPos = 0;
                 
-                if(format== WGS84Format.DegreesMinutes)
-                    firstValueEndPos = positionString.IndexOf("'");
-                else if(format == WGS84Format.DegreesMinutesSeconds)
-                    firstValueEndPos = positionString.IndexOf("\"");
+                switch (format)
+                {
+                    case WGS84Format.DegreesMinutes:
+                        firstValueEndPos = positionString.IndexOf("'", StringComparison.Ordinal);
+                        break;
+                    case WGS84Format.DegreesMinutesSeconds:
+                        firstValueEndPos = positionString.IndexOf("\"", StringComparison.Ordinal);
+                        break;
+                }
 
                 string lat = positionString.Substring(0, firstValueEndPos + 1).Trim();
                 string lon = positionString.Substring(firstValueEndPos + 1).Trim();
@@ -108,16 +114,19 @@ namespace MightyLittleGeodesy.Positions
         {
             value = value.Trim();
 
-            if(format == WGS84Format.DegreesMinutes)
-                Latitude = ParseValueFromDmString(value, "S");
-            else if (format == WGS84Format.DegreesMinutesSeconds)
-                Latitude = ParseValueFromDmsString(value, "S");
-            else if(format == WGS84Format.Degrees)
+            switch (format)
             {
-                Latitude = double.Parse(value);
+                case WGS84Format.DegreesMinutes:
+                    this.Latitude = this.ParseValueFromDmString(value, 'S');
+                    break;
+                case WGS84Format.DegreesMinutesSeconds:
+                    this.Latitude = this.ParseValueFromDmsString(value, 'S');
+                    break;
+                case WGS84Format.Degrees:
+                    this.Latitude = double.Parse(value);
+                    break;
             }
         }
-
 
         /// <summary>
         /// Set the longitude value from a string. The string is
@@ -127,13 +136,17 @@ namespace MightyLittleGeodesy.Positions
         /// <param name="format">Coordinate format in the string</param>
         public void SetLongitudeFromString(string value, WGS84Format format)
         {
-            if (format == WGS84Format.DegreesMinutes)
-                Longitude = ParseValueFromDmString(value, "W");
-            else if (format == WGS84Format.DegreesMinutesSeconds)
-                Longitude = ParseValueFromDmsString(value, "W");
-            else if (format == WGS84Format.Degrees)
+            switch (format)
             {
-                Longitude = double.Parse(value);
+                case WGS84Format.DegreesMinutes:
+                    this.Longitude = this.ParseValueFromDmString(value, 'W');
+                    break;
+                case WGS84Format.DegreesMinutesSeconds:
+                    this.Longitude = this.ParseValueFromDmsString(value, 'W');
+                    break;
+                case WGS84Format.Degrees:
+                    this.Longitude = double.Parse(value);
+                    break;
             }
         }
 
@@ -144,12 +157,15 @@ namespace MightyLittleGeodesy.Positions
         /// <returns></returns>
         public string LatitudeToString(WGS84Format format)
         {
-            if (format == WGS84Format.DegreesMinutes)
-                return ConvToDmString(Latitude, 'N', 'S');
-            else if (format == WGS84Format.DegreesMinutesSeconds)
-                return ConvToDmsString(Latitude, 'N', 'S');
-            else
-                return Latitude.ToString();
+            switch (format)
+            {
+                case WGS84Format.DegreesMinutes:
+                    return this.ConvToDmString(this.Latitude, 'N', 'S');
+                case WGS84Format.DegreesMinutesSeconds:
+                    return this.ConvToDmsString(this.Latitude, 'N', 'S');
+                default:
+                    return this.Latitude.ToString(CultureInfo.InvariantCulture);
+            }
         }
 
         /// <summary>
@@ -159,12 +175,15 @@ namespace MightyLittleGeodesy.Positions
         /// <returns></returns>
         public string LongitudeToString(WGS84Format format)
         {
-            if (format == WGS84Format.DegreesMinutes)
-                return ConvToDmString(Longitude, 'E', 'W');
-            else if (format == WGS84Format.DegreesMinutesSeconds)
-                return ConvToDmsString(Longitude, 'E', 'W');
-            else
-                return Longitude.ToString();
+            switch (format)
+            {
+                case WGS84Format.DegreesMinutes:
+                    return this.ConvToDmString(this.Longitude, 'E', 'W');
+                case WGS84Format.DegreesMinutesSeconds:
+                    return this.ConvToDmsString(this.Longitude, 'E', 'W');
+                default:
+                    return this.Longitude.ToString(CultureInfo.InvariantCulture);
+            }
         }
 
         private string ConvToDmString(double value, Char positiveValue, Char negativeValue)
@@ -177,101 +196,110 @@ namespace MightyLittleGeodesy.Positions
             var degrees = Math.Floor(Math.Abs(value));
             var minutes = (Math.Abs(value) - degrees) * 60;
 
-            return string.Format("{0} {1}º {2}'", value >= 0 ? positiveValue : negativeValue, degrees, (Math.Floor(minutes * 10000) / 10000));
+            return string.Format(
+                "{0} {1}º {2}'",
+                value >= 0 ? positiveValue : negativeValue,
+                degrees,
+                (Math.Floor(minutes * 10000) / 10000).ToString(CultureInfo.InvariantCulture));
         }
 
         private string ConvToDmsString(double value, Char positiveValue, Char negativeValue)
         {
             if (value == double.MinValue)
             {
-                return "";
+                return string.Empty;
             }
 
             var degrees = Math.Floor(Math.Abs(value));
             var minutes = Math.Floor((Math.Abs(value) - degrees) * 60);
             var seconds = (Math.Abs(value) - degrees - minutes / 60) * 3600;
 
-            return string.Format("{0} {1}º {2}' {3}\"", value >= 0 ? positiveValue : negativeValue, degrees, minutes, Math.Round(seconds, 5));
-
+            return string.Format(
+                "{0} {1}º {2}' {3}\"",
+                value >= 0 ? positiveValue : negativeValue,
+                degrees,
+                minutes,
+                Math.Round(seconds, 5).ToString(CultureInfo.InvariantCulture));
         }
 
 
-        private double ParseValueFromDmString(string value, string positiveChar)
+        private double ParseValueFromDmString(string value, char positiveChar)
         {
-            double retVal = 0.0;
-            if (!string.IsNullOrEmpty(value))
+            if (string.IsNullOrEmpty(value))
             {
-                string direction = value[0].ToString();
-                value = value.Substring(1).Trim();
-
-                string degree = value.Substring(0, value.IndexOf("º"));
-                value = value.Substring(value.IndexOf("º") + 1).Trim();
-
-                string minutes = value.Substring(0, value.IndexOf("'"));
-                value = value.Substring(value.IndexOf("'") + 1).Trim();
-
-                retVal = double.Parse(degree);
-                retVal += double.Parse(minutes, CultureInfo.InvariantCulture) / 60;
-
-                if (retVal > 90)
-                {
-                    retVal = double.MinValue;
-                }
-                if (direction == positiveChar || direction == "-")
-                {
-                    retVal *= -1;
-                }
+                return double.MinValue;
             }
-            else
+
+            var direction = value[0];
+            value = value.Substring(1).Trim();
+
+            var index = value.IndexOf("º", StringComparison.Ordinal);
+            var degree = value.Substring(0, index);
+            value = value.Substring(index + 1).Trim();
+
+            var minutes = value.Substring(0, value.IndexOf("'", StringComparison.Ordinal));
+
+            double retVal = double.Parse(degree);
+            retVal += double.Parse(minutes, CultureInfo.InvariantCulture) / 60;
+
+            if (retVal > 90)
             {
-                retVal = double.MinValue;
+               return double.MinValue;
             }
+
+            if (direction == positiveChar || direction == '-')
+            {
+                retVal *= -1;
+            }
+
             return retVal;
         }
 
-        private double ParseValueFromDmsString(string value, string positiveChar)
+        private double ParseValueFromDmsString(string value, char positiveChar)
         {
-            double retVal = 0.0;
-            if (!string.IsNullOrEmpty(value) )
+            if (string.IsNullOrEmpty(value))
             {
-                string direction = value[0].ToString();
-                value = value.Substring(1).Trim();
-
-                string degree = value.Substring(0, value.IndexOf("º"));
-                value = value.Substring(value.IndexOf("º")+1).Trim();
-
-                string minutes = value.Substring(0, value.IndexOf("'"));
-                value = value.Substring(value.IndexOf("'")+1).Trim();
-
-                string seconds = value.Substring(0, value.IndexOf("\""));
-
-
-                retVal = double.Parse(degree);
-                retVal += double.Parse(minutes) / 60;
-                retVal += double.Parse(seconds, CultureInfo.InvariantCulture) / 3600;
-
-                if (retVal > 90)
-                {
-                    retVal = double.MinValue;
-                    return retVal;
-                }
-                if (direction == positiveChar || direction == "-")
-                {
-                    retVal *= -1;
-                }
+                return double.MinValue;
             }
-            else
+            
+            double retVal;
+
+            var direction = value[0];
+            value = value.Substring(1).Trim();
+
+            var index = value.IndexOf("º", StringComparison.Ordinal);
+            var degree = value.Substring(0, index);
+            value = value.Substring(index + 1).Trim();
+
+            index = value.IndexOf("'", StringComparison.Ordinal);
+            var minutes = value.Substring(0, index);
+            value = value.Substring(index + 1).Trim();
+
+            var seconds = value.Substring(0, value.IndexOf("\"", StringComparison.Ordinal));
+
+            retVal = double.Parse(degree);
+            retVal += double.Parse(minutes) / 60;
+            retVal += double.Parse(seconds, CultureInfo.InvariantCulture) / 3600;
+
+            if (retVal > 90)
             {
-                retVal = double.MinValue;
+                return double.MinValue;
             }
+
+            if (direction == positiveChar || direction == '-')
+            {
+                retVal *= -1;
+            }
+            
             return retVal;
         }
-
 
         public override string ToString()
         {
-            return string.Format("Latitude: {0}  Longitude: {1}", 
-                LatitudeToString(WGS84Format.DegreesMinutesSeconds), LongitudeToString(WGS84Format.DegreesMinutesSeconds));
+            return string.Format(
+                "Latitude: {0}  Longitude: {1}",
+                LatitudeToString(WGS84Format.DegreesMinutesSeconds),
+                LongitudeToString(WGS84Format.DegreesMinutesSeconds));
         }
     }
 }
