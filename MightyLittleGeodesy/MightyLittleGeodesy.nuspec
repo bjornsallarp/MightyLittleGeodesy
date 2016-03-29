@@ -1,0 +1,17 @@
+<?xml version="1.0"?>
+<package >
+  <metadata>
+    <id>$id$</id>
+    <version>$version$</version>
+    <title>$title$</title>
+    <authors>$author$</authors>
+    <owners>$author$</owners>
+    <licenseUrl>http://github.com/bjornsallarp/MightyLittleGeodesy</licenseUrl>
+    <projectUrl>http://github.com/bjornsallarp/MightyLittleGeodesy</projectUrl>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <description>$description$</description>
+    <releaseNotes>NuGet package created</releaseNotes>
+    <copyright>Copyright 2013</copyright>
+    <tags>gis wgs84 sweref rt90 dotnet</tags>
+  </metadata>
+</package>
