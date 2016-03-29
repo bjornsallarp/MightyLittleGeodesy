@@ -1,11 +1,13 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 2013
-VisualStudioVersion = 12.0.30501.0
+# Visual Studio 14
+VisualStudioVersion = 14.0.24720.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MightyLittleGeodesy", "MightyLittleGeodesy\MightyLittleGeodesy.csproj", "{F5C2A972-CAE0-423D-8F11-6D446F4916D0}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MightyLittleGeodesyTests", "MightyLittleGeodesyTests\MightyLittleGeodesyTests.csproj", "{809AE4C2-0334-42E7-A889-AAA3B1083AA1}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MightyLittleGeodesyPortable", "MightyLittleGeodesyPortable\MightyLittleGeodesyPortable.csproj", "{31988FEF-14AD-4110-B8AC-320192A938BE}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,6 +23,10 @@ Global
 		{809AE4C2-0334-42E7-A889-AAA3B1083AA1}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{809AE4C2-0334-42E7-A889-AAA3B1083AA1}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{809AE4C2-0334-42E7-A889-AAA3B1083AA1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{31988FEF-14AD-4110-B8AC-320192A938BE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{31988FEF-14AD-4110-B8AC-320192A938BE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{31988FEF-14AD-4110-B8AC-320192A938BE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{31988FEF-14AD-4110-B8AC-320192A938BE}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
