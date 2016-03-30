@@ -1,0 +1,71 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <MinimumVisualStudioVersion>10.0</MinimumVisualStudioVersion>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{31988FEF-14AD-4110-B8AC-320192A938BE}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>MightyLittleGeodesy</RootNamespace>
+    <AssemblyName>MightyLittleGeodesy</AssemblyName>
+    <DefaultLanguage>en-US</DefaultLanguage>
+    <FileAlignment>512</FileAlignment>
+    <ProjectTypeGuids>{786C830F-07A1-408B-BD7F-6EE04809D6DB};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <TargetFrameworkProfile>Profile259</TargetFrameworkProfile>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\portable-net45+netcore45+wpa81+wp8\</OutputPath>
+    <DefineConstants>TRACE;DEBUG;PORTABLE45</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\portable-net45+netcore45+wpa81+wp8\</OutputPath>
+    <DefineConstants>TRACE;PORTABLE45</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <DocumentationFile>bin\Release\portable-net45+netcore45+wpa81+wp8\MightyLittleGeodesy.XML</DocumentationFile>
+  </PropertyGroup>
+  <ItemGroup>
+    <!-- A reference to the entire .NET Framework is automatically included -->
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="..\MightyLittleGeodesy\Classes\GaussKreuger.cs">
+      <Link>Classes\GaussKreuger.cs</Link>
+    </Compile>
+    <Compile Include="..\MightyLittleGeodesy\Classes\Position.cs">
+      <Link>Classes\Position.cs</Link>
+    </Compile>
+    <Compile Include="..\MightyLittleGeodesy\Positions\RT90Position.cs">
+      <Link>Positions\RT90Position.cs</Link>
+    </Compile>
+    <Compile Include="..\MightyLittleGeodesy\Positions\SWEREF99Position.cs">
+      <Link>Positions\SWEREF99Position.cs</Link>
+    </Compile>
+    <Compile Include="..\MightyLittleGeodesy\Positions\WGS84Position.cs">
+      <Link>Positions\WGS84Position.cs</Link>
+    </Compile>
+    <Compile Include="Classes\GaussKreuger.cs" />
+    <Compile Include="Classes\Position.cs" />
+    <Compile Include="Positions\RT90Position.cs" />
+    <Compile Include="Positions\SWEREF99Position.cs" />
+    <Compile Include="Positions\WGS84Position.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\Portable\$(TargetFrameworkVersion)\Microsoft.Portable.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

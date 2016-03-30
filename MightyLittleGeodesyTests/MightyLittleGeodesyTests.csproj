@@ -49,6 +49,7 @@
     <DefineConstants>TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <DocumentationFile>bin\Release\MightyLittleGeodesyTests.XML</DocumentationFile>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="Microsoft.VisualStudio.QualityTools.UnitTestFramework, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL" />
@@ -62,9 +63,9 @@
     <Compile Include="ConversionTests.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\MightyLittleGeodesy\MightyLittleGeodesy.csproj">
+    <ProjectReference Include="..\MightyLittleGeodesy\MightyLittleGeodesy.Net40.csproj">
       <Project>{F5C2A972-CAE0-423D-8F11-6D446F4916D0}</Project>
-      <Name>MightyLittleGeodesy</Name>
+      <Name>MightyLittleGeodesy.Net40</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>

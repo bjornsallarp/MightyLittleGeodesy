@@ -23,7 +23,6 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
  */
 
-using System;
 using MightyLittleGeodesy.Classes;
 
 namespace MightyLittleGeodesy.Positions
@@ -78,8 +77,6 @@ namespace MightyLittleGeodesy.Positions
             Longitude = lat_lon[1];
             Projection = rt90projection;
         }
-
-        
 
         /// <summary>
         /// Convert the position to WGS84 format
