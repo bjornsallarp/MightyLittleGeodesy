@@ -2,7 +2,7 @@ MightyLittleGeodesy
 ===================
 
 [![NuGet version (Newtonsoft.Json)](https://img.shields.io/nuget/v/MightyLittleGeodesy.svg?style=flat-square)](https://www.nuget.org/packages/MightyLittleGeodesy/)
-[![Build Status](https://dev.azure.com/bjorn0254/MightyLittleGeodesy/_apis/build/status/bjornsallarp.MightyLittleGeodesy?branchName=master)](https://dev.azure.com/bjorn0254/MightyLittleGeodesy/_build/latest?definitionId=1&branchName=master)
+[![Build Status](https://dev.azure.com/bjornsallarp/MightyLittleGeodesy/_apis/build/status/bjornsallarp.MightyLittleGeodesy?branchName=master)](https://dev.azure.com/bjornsallarp/MightyLittleGeodesy/_build/latest?definitionId=1&branchName=master)
 
 Translate coordinates between RT90, WGS84 and SWEREF99 using .NET
 
