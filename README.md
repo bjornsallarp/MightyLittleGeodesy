@@ -1,5 +1,9 @@
 MightyLittleGeodesy
 ===================
+
+[![NuGet version (Newtonsoft.Json)](https://img.shields.io/nuget/v/MightyLittleGeodesy.svg?style=flat-square)](https://www.nuget.org/packages/MightyLittleGeodesy/)
+[![Build Status](https://dev.azure.com/bjorn0254/MightyLittleGeodesy/_apis/build/status/bjornsallarp.MightyLittleGeodesy?branchName=master)](https://dev.azure.com/bjorn0254/MightyLittleGeodesy/_build/latest?definitionId=1&branchName=master)
+
 Translate coordinates between RT90, WGS84 and SWEREF99 using .NET
 
 The calculations in this library is based on the [excellent javascript library by Arnold Andreasson](http://latlong.mellifica.se/ "javascript library by Arnold Andreasson") which is published under the [Creative Commons license](http://creativecommons.org/licenses/by-nc-sa/3.0/). However, as agreed with mr Andreasson, MightyLittleGeodesy is now licensed under the MIT license.
