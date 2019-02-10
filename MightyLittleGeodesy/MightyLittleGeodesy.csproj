@@ -1,0 +1,59 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <TargetFrameworks>netstandard1.2;net45;net40;portable-net45+win8+wpa81+wp8</TargetFrameworks>
+    <GenerateAssemblyInfo>false</GenerateAssemblyInfo>
+  </PropertyGroup>
+  
+  <PropertyGroup>
+    <IncludeSymbols>true</IncludeSymbols>
+    <SymbolPackageFormat>snupkg</SymbolPackageFormat>
+
+    <VersionPrefix>1.0.2</VersionPrefix>
+    <PublishRepositoryUrl>true</PublishRepositoryUrl>
+    <RepositoryType>git</RepositoryType>
+    <RepositoryUrl>https://github.com/bjornsallarp/MightyLittleGeodesy</RepositoryUrl>
+    <PackageLicenseExpression>MIT</PackageLicenseExpression>
+    <PackageReleaseNotes>Added netstandard2.0 dll</PackageReleaseNotes>
+    <PackageTags>RT90 SWEREF99 WGS84 Geodesy</PackageTags>
+    <Authors>Björn Sållarp</Authors>
+    <PackageProjectUrl>https://github.com/bjornsallarp/MightyLittleGeodesy</PackageProjectUrl>
+    <MinClientVersion>2.12</MinClientVersion>
+    <Summary>Translate RT90, WGS84 and SWEREF99 coordinates</Summary>
+    <Description>
+      You can translate both ways between coordinate systems: RT90, SWEREF99 andWGS84.
+
+      The WGS84 object can parse out positions from strings in DMS (degrees, minutes seconds, and DM (degrees, minutes) format.
+
+      All in all it’s a pretty easy to use and powerful library.
+    </Description>
+    <GenerateDocumentationFile>true</GenerateDocumentationFile>
+    <!-- including PDB files in NuGet for source link because symbolsource.org does not support portable PDBs -->
+    <AllowedOutputExtensionsInPackageBuildOutputFolder>$(AllowedOutputExtensionsInPackageBuildOutputFolder);.pdb</AllowedOutputExtensionsInPackageBuildOutputFolder>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(TargetFramework)' == 'netstandard1.2'">
+    <DefineConstants>NETSTANDARD1_2;$(AdditionalConstants)</DefineConstants>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(TargetFramework)' == 'net45'">
+    <DefineConstants>NET45;$(AdditionalConstants)</DefineConstants>
+  </PropertyGroup>
+      <PropertyGroup Condition="'$(TargetFramework)' == 'net40'">
+    <DefineConstants>NET40;$(AdditionalConstants)</DefineConstants>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(TargetFramework)' == 'portable-net45+win8+wpa81+wp8'">
+    <AssemblyTitle>Json.NET Portable</AssemblyTitle>
+    <DefineConstants>PORTABLE45;$(AdditionalConstants)</DefineConstants>
+    <TargetFrameworkIdentifier>.NETPortable</TargetFrameworkIdentifier>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <TargetFrameworkProfile>Profile259</TargetFrameworkProfile>
+    <NugetTargetMoniker>.NETPortable,Version=v0.0,Profile=Profile259</NugetTargetMoniker>
+    <LanguageTargets>$(MSBuildExtensionsPath32)\Microsoft\Portable\$(TargetFrameworkVersion)\Microsoft.Portable.CSharp.targets</LanguageTargets>
+  </PropertyGroup>
+  
+  <ItemGroup>
+    <PackageReference Include="Microsoft.SourceLink.GitHub" Version="1.0.0-beta2-18618-05">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers</IncludeAssets>
+    </PackageReference>
+  </ItemGroup>
+</Project>

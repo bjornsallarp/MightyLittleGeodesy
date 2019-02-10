@@ -1,15 +1,17 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 14
-VisualStudioVersion = 14.0.24720.0
+# Visual Studio 15
+VisualStudioVersion = 15.0.28307.329
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MightyLittleGeodesy.Net40", "MightyLittleGeodesy\MightyLittleGeodesy.Net40.csproj", "{F5C2A972-CAE0-423D-8F11-6D446F4916D0}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MightyLittleGeodesyTests", "MightyLittleGeodesyTests\MightyLittleGeodesyTests.csproj", "{809AE4C2-0334-42E7-A889-AAA3B1083AA1}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MightyLittleGeodesyTests", "MightyLittleGeodesyTests\MightyLittleGeodesyTests.csproj", "{809AE4C2-0334-42E7-A889-AAA3B1083AA1}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MightyLittleGeodesy", "MightyLittleGeodesy\MightyLittleGeodesy.csproj", "{418ACB92-2063-4D6C-B56A-B0FF8DA89CAD}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MightyLittleGeodesy.Portable45", "MightyLittleGeodesy\MightyLittleGeodesy.Portable45.csproj", "{31988FEF-14AD-4110-B8AC-320192A938BE}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MightyLittleGeodesy.Net45", "MightyLittleGeodesy\MightyLittleGeodesy.Net45.csproj", "{710BF1AB-BFF7-47C9-BB09-22B9E5026BD5}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{51A96629-4E4C-44E9-B217-F8D47DB3B1CD}"
+	ProjectSection(SolutionItems) = preProject
+		azure-pipelines.yml = azure-pipelines.yml
+		README.md = README.md
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -17,25 +19,20 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{F5C2A972-CAE0-423D-8F11-6D446F4916D0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{F5C2A972-CAE0-423D-8F11-6D446F4916D0}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{F5C2A972-CAE0-423D-8F11-6D446F4916D0}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{F5C2A972-CAE0-423D-8F11-6D446F4916D0}.Release|Any CPU.Build.0 = Release|Any CPU
 		{809AE4C2-0334-42E7-A889-AAA3B1083AA1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{809AE4C2-0334-42E7-A889-AAA3B1083AA1}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{809AE4C2-0334-42E7-A889-AAA3B1083AA1}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{809AE4C2-0334-42E7-A889-AAA3B1083AA1}.Release|Any CPU.Build.0 = Release|Any CPU
-		{31988FEF-14AD-4110-B8AC-320192A938BE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{31988FEF-14AD-4110-B8AC-320192A938BE}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{31988FEF-14AD-4110-B8AC-320192A938BE}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{31988FEF-14AD-4110-B8AC-320192A938BE}.Release|Any CPU.Build.0 = Release|Any CPU
-		{710BF1AB-BFF7-47C9-BB09-22B9E5026BD5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{710BF1AB-BFF7-47C9-BB09-22B9E5026BD5}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{710BF1AB-BFF7-47C9-BB09-22B9E5026BD5}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{710BF1AB-BFF7-47C9-BB09-22B9E5026BD5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{418ACB92-2063-4D6C-B56A-B0FF8DA89CAD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{418ACB92-2063-4D6C-B56A-B0FF8DA89CAD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{418ACB92-2063-4D6C-B56A-B0FF8DA89CAD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{418ACB92-2063-4D6C-B56A-B0FF8DA89CAD}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {A074A08D-DB4A-45E2-B413-4F3A8FB406C0}
 	EndGlobalSection
 	GlobalSection(TestCaseManagementSettings) = postSolution
 		CategoryFile = CoordinateTransformation.vsmdi
